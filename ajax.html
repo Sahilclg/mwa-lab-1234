@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation and AJAX Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1>Form Validation and AJAX Example</h1>
+        <p>This page includes form validation, DOM manipulation, and an AJAX example using jQuery.</p>
+
+        <!-- Form with Validation -->
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">Zip Code:</label>
+                <input type="text" class="form-control" id="zip" placeholder="Enter your zip code" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <!-- Response Section -->
+        <div id="response" class="mt-4">
+            <h3>Response from Server</h3>
+            <p id="responseMessage"></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, jQuery, and custom JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- Custom Styles (styles.css) -->
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    color: #007bff;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#responseMessage {
+    color: #28a745;
+    font-weight: bold;
+}
+</style>
+
+<!-- JavaScript (script.js) -->
+<script>
+// Form Validation
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Basic validation
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const zip = document.getElementById('zip').value;
+
+    if (!name || !email || !phone || !zip) {
+        alert("All fields are mandatory.");
+        return;
+    }
+
+    // Email validation
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // Phone number validation
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phone.match(phonePattern)) {
+        alert("Please enter a valid 10-digit phone number.");
+        return;
+    }
+
+    // Zip code validation
+    const zipPattern = /^[0-9]{5}$/;
+    if (!zip.match(zipPattern)) {
+        alert("Please enter a valid 5-digit zip code.");
+        return;
+    }
+
+    // AJAX Request
+    $.ajax({
+        url: "https://jsonplaceholder.typicode.com/posts",
+        type: "POST",
+        data: {
+            name: name,
+            email: email,
+            phone: phone,
+            zip: zip,
+            message: document.getElementById('message').value
+        },
+        success: function(response) {
+            document.getElementById('responseMessage').innerText = "Form submitted successfully!";
+            console.log(response);
+        },
+        error: function() {
+            document.getElementById('responseMessage').innerText = "There was an error submitting the form.";
+        }
+    });
+});
+</script>
