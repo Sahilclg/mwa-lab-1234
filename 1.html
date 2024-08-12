@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 style="color: #007bff; font-family: 'Arial', sans-serif;">Welcome to My Music Page</h1>
+        <p style="font-size: 18px;">This is a simple example of a responsive web page created using Bootstrap. Below, you'll find images and links for navigation.</p>
+
+        <!-- Images Section -->
+        <div class="row">
+            <div class="col-md-4"><a href="https://open.spotify.com/search/Nayaab Seedhe maut">
+                <img src="1.png" class="img-fluid" alt="Image 1"></a>
+            </div>
+            <div class="col-md-4"><a href="https://open.spotify.com/search/Bayaan Seedhe maut">
+                <img src="2.png" class="img-fluid" alt="Image 2"></a>
+            </div>
+            <div class="col-md-4"><a href="https://open.spotify.com/search/Lunchbreak Seedhe maut">
+                <img src="3.jpg" class="img-fluid" alt="Image 3"></a>
+            </div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="mt-4">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="#section1">Link within the page</a></li>
+                <li><a href="https://www.example.com" target="_blank">External link in a new tab</a></li>
+            </ul>
+        </div>
+
+        <!-- Page Section Example -->
+        <div id="section1" class="mt-5">
+            <h3>Section 1</h3>
+            <p>LUNCH BREAK
+                Aug 19, 2023
+                Whether it’s creating a universe for their thriving ‘nation’ with their intricate story lines, or singles that effortlessly hit the charts, Seedhe Maut has undeniably pioneered contemporary Indian hip-hop. With ‘Lunch Break’, their third mixtape they introduce a cutting-edge soundscape, which flows through multiple genres but with the Seedhe Maut spin to it. They continue to question, rebel and mostly important remain unhinged, speaking to a generation that is burdened with a world that refuses to change
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="mt-5">
+            <h2>Contact Us</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
